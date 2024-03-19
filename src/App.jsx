@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import ContactForm from './components/ContactForm/ContactForm'
 import SearchBox from './components/SearchBox/SearchBox'
 import ContactList from './components/ContactList/ContactList'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { selectError, selectLoading } from './redux/contactsSlice'
+import { fetchContacts } from './redux/contactsOps'
 import './App.css'
 
 const App = () => {
@@ -15,6 +16,11 @@ const App = () => {
 	])
 
 	const [filter, setFilter] = useState('')
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(fetchContacts())
+	}, [dispatch])
 
 	useEffect(() => {
 		localStorage.setItem('contacts', JSON.stringify(contacts))
