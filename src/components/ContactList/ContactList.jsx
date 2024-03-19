@@ -13,8 +13,8 @@ const ContactList = () => {
 		if (!name) {
 			return contacts
 		}
-		return contacts.filter(el =>
-			Register(el.name).toLowerCase().includes(Register(name).toLowerCase())
+		return contacts.filter(elem =>
+			Register(elem.name).toLowerCase().includes(Register(name).toLowerCase())
 		)
 	}, [contacts, name])
 

@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import ContactForm from './components/ContactForm/ContactForm'
 import SearchBox from './components/SearchBox/SearchBox'
 import ContactList from './components/ContactList/ContactList'
+import { useSelector } from 'react-redux'
+import { selectError, selectLoading } from './redux/contactsSlice'
 import './App.css'
 
 const App = () => {
@@ -35,11 +37,16 @@ const App = () => {
 		setContacts(contacts.filter(contact => contact.id !== id))
 	}
 
+	const isLoading = useSelector(selectLoading)
+	const error = useSelector(selectError)
+
 	return (
 		<div className='app-container'>
 			<h1 className='title'>Phonebook</h1>
 			<ContactForm onSubmit={addContact} />
 			<SearchBox value={filter} onChange={handleFilterChange} />
+			{isLoading && !error && <b>Loading...</b>}
+			{error && <b>Please try again later</b>}
 			<ContactList contacts={filteredContacts} onDelete={deleteContact} />
 		</div>
 	)
