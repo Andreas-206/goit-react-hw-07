@@ -1,0 +1,17 @@
+.contact {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	align-items: center;
+	border: 1px solid #050505;
+	border-radius: 4px;
+	padding: 8px 12px;
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+.row {
+	align-items: center;
+	display: flex;
+	gap: 4px;
+}
