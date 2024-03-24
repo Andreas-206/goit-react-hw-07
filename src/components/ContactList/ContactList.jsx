@@ -2,7 +2,7 @@ import Contact from '../Contact/Contact'
 import { useSelector } from 'react-redux'
 import { selectContacts } from '../../redux/selectors.js'
 import { selectNameFilter } from '../../redux/filtersSlice'
-import { Register } from '../../redux/standart.js'
+import { Register } from '../../redux/selectors.js'
 import { useMemo } from 'react'
 
 const ContactList = () => {
