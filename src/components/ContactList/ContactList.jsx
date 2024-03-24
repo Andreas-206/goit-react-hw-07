@@ -1,6 +1,6 @@
 import Contact from '../Contact/Contact'
 import { useSelector } from 'react-redux'
-import { selectContacts } from '../../redux/contactsSlice'
+import { selectContacts } from '../../redux/selectors.js'
 import { selectNameFilter } from '../../redux/filtersSlice'
 import { Register } from '../../redux/standart.js'
 import { useMemo } from 'react'
